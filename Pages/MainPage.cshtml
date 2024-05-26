@@ -1,0 +1,81 @@
+﻿@page
+@model InventorySystem.Pages.MainPageModel
+@{
+    var loggedInUserName = @HttpContext.Session.GetString("LoggedInUserName");
+}
+
+<style>
+    .button-container {
+        display: flex;
+        flex-wrap: wrap; 
+        justify-content: space-around; 
+    }
+
+        .button-container div {
+            margin: 10px; 
+        }
+
+    .btn-primary.btn-lg {
+        width: 300px; 
+        height: 150px; 
+        text-align: center;
+        line-height: 120px; 
+        font-size: 27px; 
+        font-weight: bold;
+    }
+</style>
+
+
+
+<div class="container overflow-hidden text-center">
+    <div class="row gy-5">
+        <div class="col-6">
+            <div class="text-center">
+                <a href="/AddProduct" class="btn btn-primary btn-lg">Add Product</a>
+            </div>
+        </div>
+         @if (loggedInUserName != null && !(loggedInUserName.Equals("Admin")))
+            {
+        <div class="col-6">
+            <div class="text-center">
+                <a href="/StoreStock" class="btn btn-primary btn-lg">Store stock</a>
+            </div>
+        </div>
+            }
+        <div class="col-6">
+            <div class="text-center">
+                <a href="/ProductsInChain" class="btn btn-primary btn-lg">Products in chain</a>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="text-center">
+                <a href="/InventoryUpdate" class="btn btn-primary btn-lg">Update inventory</a>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="text-center">
+                <a href="/Search" class="btn btn-primary btn-lg">Search</a>
+            </div>
+        </div>
+         @if (loggedInUserName != null && !(loggedInUserName.Equals("Admin")))
+            {
+        <div class="col-6">
+           
+                <div class="text-center">
+                    <a href="/Sale" class="btn btn-primary btn-lg">Sale</a>
+                </div>
+            
+        </div>
+        }
+         @if (loggedInUserName != null && loggedInUserName.Equals("Admin"))
+            {
+        <div class="col-6">
+           
+                <div class="text-center">
+                    <a href="/RegisterBranch" class="btn btn-primary btn-lg">Register new Branch</a>
+                </div>
+            
+        </div>
+        }
+    </div>
+</div>

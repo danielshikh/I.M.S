@@ -1,0 +1,109 @@
+﻿@page
+@model InventorySystem.Pages.AddProductModel
+@{
+}
+<h2 class="text-primary" style="padding: 20px; font-size: 40px; font-weight: bold">Add Product</h2>
+<div class="container" style="padding: 30px;">
+    <form method="post">
+        <div class="form-group row mb-4">
+            <div class="col-2">
+                <label>Product Name</label>
+            </div>
+            <div class="col-4">
+                <input type="text" id="p-name" class="form-control" asp-for="Product.Name" />
+                <span asp-validation-for="Product.Name" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row mb-4">
+            <div class="col-2">
+                <label>Description</label>
+            </div>
+            <div class="col-4">
+                <input type="text" id="p-description" class="form-control" asp-for="Product.Description" />
+                <span asp-validation-for="Product.Description" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row mb-4">
+            <div class="col-2">
+                <label>Catalog Number</label>
+            </div>
+            <div class="col-4">
+                <input type="text" id="p-catalognumber" class="form-control" asp-for="Product.ProductId" />
+                <span asp-validation-for="Product.ProductId" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row mb-4">
+            <div class="col-2">
+                <label>Quantity</label>
+            </div>
+            <div class="col-4">
+                <input type="text" id="p-quantity" class="form-control" asp-for="Product.Quantity" />
+                <span asp-validation-for="Product.Quantity" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row mb-4">
+            <div class="col-2">
+                <label>Price</label>
+            </div>
+            <div class="col-4">
+                <input type="text" id="p-pricesale" class="form-control" asp-for="Product.PriceCustomer" />
+                <span asp-validation-for="Product.PriceCustomer" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row mb-4">
+            <div class="col-2">
+                <label>Importer Price</label>
+            </div>
+            <div class="col-4">
+                <input type="text" id="p-priceimporter" class="form-control" asp-for="Product.PriceImporter" />
+                <span asp-validation-for="Product.PriceImporter" class="text-danger"></span>
+            </div>
+        </div>
+
+        
+            @if (HttpContext.Session.GetString("LoggedInUserName").Equals("Admin"))
+            {
+            <div class="form-group row mb-4">
+                <div class="col-2">
+                    <label>Location</label>
+                </div>
+                <div class="col-4">
+                    <select id="b-branch" class="form-select" asp-for="Product.BranchId">
+                        @foreach(var branch in Model.Branches)
+                        {
+                        <option value="@branch.Id">@branch.Name, @branch.Address</option>
+                        }
+                    </select>
+                </div>
+             </div>
+            }
+       
+
+        <div class="form-group row mb-4">
+            <div class="col-2">
+                <label>Threshold</label>
+            </div>
+            <div class="col-4">
+                <input type="text" id="p-threshold" class="form-control" asp-for="Product.Threshold" />
+                <span asp-validation-for="Product.Threshold" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row mb-4">
+            <div class="col-2 offset-2">
+                <input type="submit" value="Submit" class="btn btn-primary form-control" />
+            </div>
+        </div>
+        <div class="form-group row mb-4">
+            <div class="col-2 offset-2">
+                <a href="/MainPage" class="btn btn-dark btn-lg">Back</a>
+            </div>
+        </div>
+    </form>
+</div>
+

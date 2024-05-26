@@ -1,0 +1,53 @@
+﻿@page
+@model InventorySystem.Pages.StoreStockModel
+
+@{
+}
+<div class="container row p-0 m-0">
+    <div class="col-9">
+        <h1 class="text-primary" style="font-weight: bold">Store stock</h1>
+    </div>
+
+    <div class="col-12 border p-2 mt-3 d-flex justify-content-between" style="font-size: 20px">
+        <div>
+            Sort by:
+            <a asp-page="./StoreStock" asp-route-sortOrder="name">Product Name</a> |
+            <a asp-page="./StoreStock" asp-route-sortOrder="number">Catalog Number</a>
+        </div>
+
+        <form method="post" class="searchForm">
+            <span class="btn-group">
+                <input type="text" name="searchString" placeholder="Search Key" />
+                <input class="p-1 m-lg-1 btn btn-sm btn-danger" style="border-radius:10px; font-size: 20px; padding: 10px 20px;"
+                       type="submit" value="Search" />
+            </span>
+        </form>
+    </div>
+        <table class="table table-striped border" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Catalog Number</th>
+                    <th>Product Name</th>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in Model.Products)
+                {
+                    <tr>
+                        <td>@product.ProductId</td>
+                        <td>@product.Name</td>
+                        <td>@product.Description</td>
+                        <td>@product.Quantity</td>
+                        <td>@product.PriceCustomer</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="text-center">
+            <br /> <a href="/MainPage" class="btn btn-dark btn-lg">Back</a>
+        </div>
+    </div>
+</div>

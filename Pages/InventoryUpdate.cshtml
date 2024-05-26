@@ -1,0 +1,54 @@
+﻿@page
+@model InventorySystem.Pages.InventoryUpdateModel
+@{
+}
+<div class="container row p-0 m-0">
+    <div class="col-9">
+        <h1 class="text-primary" style="font-weight:bold">Products Table</h1>
+    </div>
+
+    <div class="col-12 border p-3 mt-3">
+        <div>
+            Sort by:
+            <a asp-page="./InventoryUpdate" asp-route-sortOrder="name">Product Name</a> |
+            <a asp-page="./InventoryUpdate" asp-route-sortOrder="number">Catalog Number</a>
+        </div>
+
+        <table class="table table-striped border " style="width:100%">
+            <thead>
+                <tr>
+                    <th>Catalog Number</th>
+                    <th>Product Name</th>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Location</th>
+                    <th>Address</th>
+                    <th>Threshold</th>
+                    <th> </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in Model.Products)
+                {
+                    <tr>
+                        <td>@product.ProductId</td>
+                        <td>@product.Name</td>
+                        <td>@product.Description</td>
+                        <td>@product.Quantity</td>
+                        <td>@product.PriceCustomer</td>
+                        <td>@product.Location</td>
+                        <td>@Model.productAddress</td>
+                        <td>@product.Threshold</td>
+                        <td>
+                            <a href="/EditProduct/@product.Id" class="btn btn-dark">Edit</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <br />  <a href="/MainPage" class="btn btn-dark btn-lg">Back</a>
+    </div>
+</div>

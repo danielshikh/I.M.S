@@ -1,0 +1,49 @@
+﻿@page "{id:int}"
+@model InventorySystem.Pages.EditProductModel
+@{
+	var message = ViewData["Message"]?.ToString();
+}
+<form method="post" onsubmit="return validateForm()">
+    <h1 class="text-primary">Edit Product</h1>
+    @if (!string.IsNullOrWhiteSpace(message))
+    {
+        <div class=" alert alert-success" role="alert">
+            @message
+        </div>
+    }
+    <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" id="p-name" class="form-control" asp-for="EditProduct.Name" value="@Model.EditProduct.Name" readonly/>
+    </div>
+    <span id="p-name-error" class="text-danger"></span>
+
+    <div class="mb-3">
+        <label class="form-label">Description</label>
+        <input type="text" id="p-Description" class="form-control" asp-for="EditProduct.Description"  />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Quantity</label>
+        <input type="text" id="p-Quantity" class="form-control" asp-for="EditProduct.Quantity" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Price For Customer</label>
+        <input type="text" id="p-PriceCustomer" class="form-control" asp-for="EditProduct.PriceCustomer" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Threshold</label>
+        <input type="text" id="p-Threshold" class="form-control" asp-for="EditProduct.Threshold" />
+    </div>
+
+
+    <div class="mb-3 d-flex justify-content-between">
+        <button type="submit" value="Update" class="btn btn-primary" asp-page-handler="Update">
+            Update Product
+        </button>
+        <button type="submit" class="btn btn-danger" asp-page-handler="Delete">
+            Delete Product
+        </button>
+        <a href="/InventoryUpdate" class="btn btn-dark btn-lg">Back</a>
+
+
+    </div>
+</form>

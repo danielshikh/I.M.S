@@ -1,0 +1,31 @@
+﻿@page
+@model InventorySystem.Pages.LoginPageModel
+@{
+    var message = ViewData["Message"]?.ToString();
+}
+
+<h1 style="color: blue; text-align: center; font-weight: bold; font-size: 72px;">Login</h1>
+<div style="display: flex; justify-content: center;">
+    <form method="post">
+        <br /><div style="text-align: center;">
+            <label for="Username" style="font-size: 18px; font-weight: bold;">Username:</label>
+            <br />
+            <input type="username" asp-for="UserLogin.UserName" style="font-size: 18px; font-weight: bold;" />
+        </div>
+        <br /><div style="text-align: center;">
+            <label for="Password" style="font-size: 18px; font-weight: bold;">Password:</label>
+            <br />
+            <input type="password" asp-for="UserLogin.Password" style="font-size: 18px; font-weight: bold;" />
+        </div> 
+        <br /><br />
+        @if (!string.IsNullOrWhiteSpace(message))
+        {
+            <div class=" alert alert-danger" role="alert">
+                @message
+            </div>
+        }
+        <br />  <div class="align-content-center" style="display: flex; justify-content: center;">
+            <button type="submit" style="background-color: blue; color: white; font-weight: bold; border: none; padding: 10px 20px;">Login</button>
+        </div>
+    </form>
+</div>
