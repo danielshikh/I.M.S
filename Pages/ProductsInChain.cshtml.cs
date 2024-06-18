@@ -22,7 +22,6 @@ namespace InventorySystem.Pages
         public List<BranchProductViewModel> BranchProducts { get; set; }
 
         public List<InventorySystem.Models.Product> Products { get; set; }
-        public List<InventorySystem.Models.Branch> Branches { get; set; }
         public void OnGet(string sortOrder)
         {
             var branches = inventoryDbContext.Branch

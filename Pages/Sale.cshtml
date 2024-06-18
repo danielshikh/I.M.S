@@ -40,10 +40,10 @@
                     @foreach (var product in Model.Products)
                     {
                         <tr>
-                            <td>@product.ProductId</td>
+                            <td>&nbsp&nbsp&nbsp&nbsp&nbsp @product.ProductId</td>
                             <td>@product.Name</td>
                             <td>@product.Description</td>
-                            <td>@product.Quantity</td>
+                            <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp @product.Quantity</td>
                             <td>
                                 <div class="input-group quantity">
                                     <input type="number" class="form-control text-center" value="0" min="0" max="@product.Quantity" name="quantity[@product.Id]">

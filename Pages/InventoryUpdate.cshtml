@@ -23,23 +23,21 @@
                     <th>Quantity</th>
                     <th>Price</th>
                     <th>Location</th>
-                    <th>Address</th>
                     <th>Threshold</th>
-                    <th> </th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var product in Model.Products)
                 {
                     <tr>
-                        <td>@product.ProductId</td>
+                        <td>&nbsp&nbsp&nbsp&nbsp @product.ProductId</td>
                         <td>@product.Name</td>
                         <td>@product.Description</td>
-                        <td>@product.Quantity</td>
+                        <td>&nbsp&nbsp&nbsp&nbsp @product.Quantity</td>
                         <td>@product.PriceCustomer</td>
                         <td>@product.Location</td>
-                        <td>@Model.productAddress</td>
-                        <td>@product.Threshold</td>
+                        <td>&nbsp&nbsp&nbsp&nbsp&nbsp @product.Threshold</td>
                         <td>
                             <a href="/EditProduct/@product.Id" class="btn btn-dark">Edit</a>
                         </td>

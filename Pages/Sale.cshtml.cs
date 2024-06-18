@@ -18,8 +18,7 @@ namespace InventorySystem.Pages
 
         public List<InventorySystem.Models.Product> Products { get; set; }
         public List<InventorySystem.Models.Product> SoldItems { get; set; }
-        public bool SaleSuccessful;
-
+       
         public void OnGet()
         {
             IQueryable<InventorySystem.Models.Product> productsQuery = inventoryDbContext.Product.Where(p => p.Location.Equals(HttpContext.Session.GetString("LoggedInUserName")));
